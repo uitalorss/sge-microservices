@@ -1,0 +1,17 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - users
+
+  users:
+    extends:
+      file: ./services/users/docker-compose.yaml
+      service: users
+
+  db_user:
+    extends:
+      file: ./services/users/docker-compose.yaml
+      service: db_user
