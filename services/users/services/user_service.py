@@ -141,9 +141,7 @@ async def get_user_data(user_id: UUID, db: AsyncSession, profile: PerfilEnum):
             "email": user_db.email,
             "telefone": user_db.telefone,
             "perfil_atual": perfil_atual,
-            "outro_perfis": outros_perfis,
-            "eventos": user_db.eventos,
-            "eventos_inscritos": user_db.eventos_inscritos,
+            "outro_perfis": outros_perfis
         }
 
         return user

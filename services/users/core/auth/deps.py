@@ -114,6 +114,12 @@ async def get_current_user(
 async def get_current_profile(
     token: str = Depends(oauth2_schema),
 ):
+    if token is None or not token.credentials:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token de acesso não fornecido ou não autorizado.",
+            headers={"WWW-authenticate": "Bearer"},
+        )
     try:
         payload = jwt.decode(
             token.credentials,
