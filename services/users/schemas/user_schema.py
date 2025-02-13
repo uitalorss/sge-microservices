@@ -8,8 +8,6 @@ from models.profile_model import PerfilEnum
 from utils.valida_cpf import valida_cpf
 from utils.valida_telefone import valida_telefone
 
-from . import EventoListUserSchema
-
 class UserSchema(BaseModel):
     nome: str
     email: EmailStr
@@ -64,4 +62,3 @@ class UserResponseSchema(BaseModel):
     email: EmailStr
     telefone: str
     criado_em: datetime
-    eventos: list[EventoListUserSchema]
